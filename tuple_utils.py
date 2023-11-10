@@ -45,8 +45,11 @@ def print_indexes_and_entries(indexes: Iterable, entries: Iterable) -> None:
     :return: None
     """
 
-    for x in range(10):
-        print("Index: " + str(indexes[x]) + "Entries" + str(entries[x]))
+    combined = list(zip(indexes, entries))
+
+    for x, y in combined:
+        print(f'Index: {str(x):10} Entry: {y}')
+
     pass  # remove pass statement and implement me
 
 
@@ -59,5 +62,9 @@ def print_items_with_index(items: Iterable):
     :param items: A tuple or a list
     :return: None
     """
+
+    for x in range(len(items)):
+        print(f'{x+1}: {items[x]}')
+
     pass  # remove pass statement and implement me
 
