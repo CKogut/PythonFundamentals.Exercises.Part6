@@ -25,7 +25,7 @@ def convert_to_fahrenheit(input_temp: float, input_unit_of_measurement: str) -> 
     :param input_temp: A float representing a temperature in celsius or kelvin
     :return:  A float representing the corresponding value of the input_temp parameter in fahrenheit
     """
-    if input_unit_of_measurement == 'f':
+    if input_unit_of_measurement == 'c':
         fahrenheit = (input_temp * 9 / 5) + 32
         return int(fahrenheit)
     elif input_unit_of_measurement == 'k':
@@ -35,7 +35,7 @@ def convert_to_fahrenheit(input_temp: float, input_unit_of_measurement: str) -> 
         print('Invalid input')
 
 
-def temperature_tuple(temperatures: Iterable, input_unit_of_measurement: str) -> Tuple[Tuple[float, float]]:
+def temperature_tuple(temperatures: Iterable, input_unit_of_measurement: str, output_unit_of_measurement: str) -> Tuple[Tuple[float, float]]:
     """
     Given a tuple or a list of temperatures, this function returns a tuple of tuples.
     Each tuple contains two values. The first is the value of the temperatures parameter. The second is the value of
@@ -55,9 +55,9 @@ def temperature_tuple(temperatures: Iterable, input_unit_of_measurement: str) ->
         orig_temp.append(i)
         # Bases on input_of_measurement, convert and assign to converted
         if input_unit_of_measurement == 'c':
-            converted.append(convert_to_fahrenheit(i))
+            converted.append(convert_to_fahrenheit(i, output_unit_of_measurement))
         elif input_unit_of_measurement == 'f':
-            converted.append(convert_to_celsius(i))
+            converted.append(convert_to_celsius(i, output_unit_of_measurement))
         else:
             pass
 
