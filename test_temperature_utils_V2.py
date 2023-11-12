@@ -70,5 +70,18 @@ class TemperatureUtilsTest(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test3_temperature_tuple(self):
+        temps_input = (0, 300, 350)
+        expected = ((0, -459), (300, 80), (350, 170))
+        actual = temperature_utils_V2.temperature_tuple(temps_input, "k", "f")
+        self.assertEqual(expected, actual)
+
+    def test4_temperature_tuple(self):
+        temps_input = (0, 30, 60)
+        expected = ((0, -273.15), (30, -243.15), (60, -213.15))
+        actual = temperature_utils_V2.temperature_tuple(temps_input, "k", "c")
+        self.assertEqual(expected, actual)
+
+    def test5_temperature_tuple(self):
         temps_input = (1, 2, 3)
-        self.assertEqual(tuple(), temperature_utils_V2.temperature_tuple(temps_input, "a", "f"))
+        self.assertEqual(tuple(), temperature_utils_V2.temperature_tuple(temps_input, "a", "g"))
+
